@@ -4,6 +4,7 @@ import './posts.css'
 import Post from './post/post'
 
 const Posts = ({posts}) => {
+
     return (
         <>
         {

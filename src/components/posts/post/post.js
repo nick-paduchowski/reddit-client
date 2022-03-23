@@ -19,6 +19,7 @@ const Post = ({ post }) => {
       post.ups - 1;
     } else {
       setBtnState("clicked");
+      setDownVoteState("")
       setPostLikes((prev) => prev + 1);
     }
   };
@@ -26,8 +27,11 @@ const Post = ({ post }) => {
   const handleDownvote = () => {
     if (downvoteState === "clicked") {
       setDownVoteState("");
+      setPostLikes((prev) => prev + 1);
     } else {
+      setBtnState("")
       setDownVoteState("clicked");
+      setPostLikes((prev) => prev - 1);
     }
   };
 

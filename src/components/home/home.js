@@ -1,28 +1,29 @@
 import React, { useEffect, useState } from "react";
 import "./home.css";
 import reddit from "../../assets/reddit.png";
-import searchIcon from "../../assets/searchIcon.png";
 import Subreddit from "../subreddits/subreddit";
 import Posts from "../posts/posts";
 import { useDispatch, useSelector } from 'react-redux'
-import { getPosts, search } from '../../actions/posts'
+import { getPosts } from '../../actions/posts'
 import { BiSearch } from 'react-icons/bi'
 
 const Home = () => {
   const [postData, setPostData] = useState([])
   const [searchQuery, setSearchQuery] = useState("")
-
+  const [reloadData, setReloadData ] = useState(false)
   let searchPostData = []
-
   const dispatch = useDispatch()
     useEffect(() => {
         dispatch(getPosts())
-        setPostData(posts)
+        console.log(postData)
     }, [dispatch, searchPostData])
-
 
     let posts = useSelector((state) => state.posts)
 
+    if (searchQuery == "" && postData == []){
+        setPostData(posts)
+        setReloadData(true)
+    }
 
     const handleSearchChange = event => {
         setSearchQuery(event.target.value)
@@ -32,6 +33,7 @@ const Home = () => {
         e.preventDefault()
         searchPostData = posts = posts.filter((post) => post.data.title.toLowerCase().includes(searchQuery.toLowerCase()))
         setPostData(searchPostData);
+        setReloadData(false)
     }
 
   return (
