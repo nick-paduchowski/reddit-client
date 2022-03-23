@@ -3,7 +3,8 @@
     margin-top: 2rem;
     width: 80%;
     border-radius: 10px;
-    display:inline-block
+    display:inline-block;
+    margin-left: 3rem;
 }
 
 .subreddits:hover{

@@ -1,0 +1,13 @@
+.post-div {
+    background-color: white;
+    margin-top: 2rem;
+    border-radius: 10px;
+    width: '80%';
+    margin-left: '3rem'; 
+    marginRight: '0'; 
+}
+
+
+.post-div:hover{
+    box-shadow: 0px 0px 3px 3px #e6e6e6;
+}
