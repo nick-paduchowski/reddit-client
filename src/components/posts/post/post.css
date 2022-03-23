@@ -11,3 +11,21 @@
 .post-div:hover{
     box-shadow: 0px 0px 3px 3px #e6e6e6;
 }
+
+.upvotes {
+    position: relative;
+    top: 3rem;
+    margin-left: 1rem;
+    width: 5%;
+}
+
+.upvotes p{
+    margin-left: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.footer h5{
+    color: blue;
+    margin-top: 0;
+}
