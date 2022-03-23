@@ -9,6 +9,7 @@ import { BiUpvote, BiDownvote } from "react-icons/bi";
 const Post = ({ post }) => {
   const upvoted = false;
   const [btnState, setBtnState] = useState("");
+  const [downvoteState, setDownVoteState] = useState("")
   const [postLikes, setPostLikes] = useState(post.ups)
 
   const handleUpvote = () => {
@@ -19,6 +20,14 @@ const Post = ({ post }) => {
     } else {
       setBtnState("clicked")
       setPostLikes((prev) => prev + 1)
+    }
+  };
+
+  const handleDownvote = () => {
+    if (downvoteState === "clicked") {
+      setDownVoteState("")
+    } else {
+      setDownVoteState("clicked")
     }
   };
 
@@ -44,7 +53,23 @@ const Post = ({ post }) => {
             />
           )}
           <p>{postLikes}</p>
-          <BiDownvote style={{ width: "2rem", marginLeft: "0.5rem" }} />
+          {downvoteState === "clicked" ? (
+            <BiDownvote
+              className="vote"
+              onClick={() => handleDownvote()}
+              style={{
+                color: "red",
+                width: "2rem",
+                marginLeft: "0.5rem",
+              }}
+            />
+          ) : (
+            <BiDownvote
+              className="vote"
+              onClick={() => handleDownvote()}
+              style={{ width: "2rem", marginLeft: "0.5rem" }}
+            />
+          )}
         </div>
         <div
           className="content"
