@@ -9,25 +9,25 @@ import { BiUpvote, BiDownvote } from "react-icons/bi";
 const Post = ({ post }) => {
   const upvoted = false;
   const [btnState, setBtnState] = useState("");
-  const [downvoteState, setDownVoteState] = useState("")
-  const [postLikes, setPostLikes] = useState(post.ups)
+  const [downvoteState, setDownVoteState] = useState("");
+  const [postLikes, setPostLikes] = useState(post.ups);
 
   const handleUpvote = () => {
     if (btnState === "clicked") {
-      setBtnState("")
-      setPostLikes((prev) => prev - 1)
-      post.ups - 1
+      setBtnState("");
+      setPostLikes((prev) => prev - 1);
+      post.ups - 1;
     } else {
-      setBtnState("clicked")
-      setPostLikes((prev) => prev + 1)
+      setBtnState("clicked");
+      setPostLikes((prev) => prev + 1);
     }
   };
 
   const handleDownvote = () => {
     if (downvoteState === "clicked") {
-      setDownVoteState("")
+      setDownVoteState("");
     } else {
-      setDownVoteState("clicked")
+      setDownVoteState("clicked");
     }
   };
 

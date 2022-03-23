@@ -4,7 +4,16 @@ import reddit from "../../assets/reddit.png";
 import search from "../../assets/search.png";
 import Subreddit from "../subreddits/subreddit";
 import Posts from "../posts/posts";
+import { useDispatch } from 'react-redux'
+import { getPosts } from '../../actions/posts'
+
 const Home = () => {
+
+  const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(getPosts())
+    }, [])
+
 
   return (
     <>
