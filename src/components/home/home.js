@@ -9,18 +9,20 @@ import { getPosts, search } from '../../actions/posts'
 import { BiSearch } from 'react-icons/bi'
 
 const Home = () => {
-
-  let posts = []
   const [postData, setPostData] = useState([])
   const [searchQuery, setSearchQuery] = useState("")
 
-  posts = useSelector((state) => state.posts)
+  let searchPostData = []
 
   const dispatch = useDispatch()
     useEffect(() => {
         dispatch(getPosts())
         setPostData(posts)
-    }, [])
+    }, [dispatch, searchPostData])
+
+
+    let posts = useSelector((state) => state.posts)
+
 
     const handleSearchChange = event => {
         setSearchQuery(event.target.value)
@@ -28,9 +30,8 @@ const Home = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(searchQuery)
-        setPostData(posts = posts.filter((post) => post.data.title.toLowerCase().includes(searchQuery.toLowerCase())));
-        console.log(postData)
+        searchPostData = posts = posts.filter((post) => post.data.title.toLowerCase().includes(searchQuery.toLowerCase()))
+        setPostData(searchPostData);
     }
 
   return (

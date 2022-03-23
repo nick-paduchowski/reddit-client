@@ -4,7 +4,6 @@ import './posts.css'
 import Post from './post/post'
 
 const Posts = ({posts}) => {
-    //const posts = useSelector((state) => state.posts)
     return (
         <>
         {
