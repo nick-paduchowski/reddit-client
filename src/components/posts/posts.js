@@ -2,14 +2,9 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import './posts.css'
 import Post from './post/post'
-import { getPosts } from '../../actions/posts'
 
-const Posts = () => {
-    // const dispatch = useDispatch()
-    // useEffect(() => {
-    //     dispatch(getPosts())
-    // }, [dispatch])
-    const posts = useSelector((state) => state.posts)
+const Posts = ({posts}) => {
+    //const posts = useSelector((state) => state.posts)
     return (
         <>
         {
