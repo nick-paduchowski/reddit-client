@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./home.css";
 import reddit from "../../assets/reddit.png";
 import search from "../../assets/search.png";
 import Subreddit from "../subreddits/subreddit";
 import Posts from "../posts/posts";
-
 const Home = () => {
+
   return (
     <>
       <nav className="nav-bar">
@@ -16,7 +16,7 @@ const Home = () => {
             <h1>Client</h1>
           </div>
           <div className="search-form">
-            <form class="example" action="action_page.php">
+            <form action="action_page.php">
               <input
                 className="search"
                 type="text"

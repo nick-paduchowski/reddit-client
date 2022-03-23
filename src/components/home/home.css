@@ -57,11 +57,10 @@ body {
 }
 
 .main-content{
-    display: grid;
-    grid-template-columns: auto auto auto auto auto auto;
+    display: flex;
 }
 
-.posts {
-    grid-column: 1 / span 5;
+.subreddit {
+    width: 30%;
 }
 
