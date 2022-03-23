@@ -1,23 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
 import posts from "../../../reducers/posts";
 import "./post.css";
 import upvote from "../../../assets/upvote.png";
 import downvote from "../../../assets/downvote.png";
 
+import { BiUpvote, BiDownvote } from "react-icons/bi";
+
 const Post = ({ post }) => {
+  const upvoted = false;
+  const [btnState, setBtnState] = useState("");
+  const [postLikes, setPostLikes] = useState(post.ups)
+
+  const handleUpvote = () => {
+    if (btnState === "clicked") {
+      setBtnState("")
+      setPostLikes((prev) => prev - 1)
+      post.ups - 1
+    } else {
+      setBtnState("clicked")
+      setPostLikes((prev) => prev + 1)
+    }
+  };
+
   return (
     <>
       <div className="post-div" style={{ display: "flex", marginLeft: "3rem" }}>
         <div className="upvotes">
-          <img
-            src={upvote}
-            style={{ width: "1.25rem", marginLeft: "0.5rem" }}
-          />
-          <p>{post.ups}</p>
-          <img
-            src={downvote}
-            style={{ width: "1.25rem", marginLeft: "0.5rem" }}
-          />
+          {btnState === "clicked" ? (
+            <BiUpvote
+              className="vote"
+              onClick={() => handleUpvote()}
+              style={{
+                color: "lightgreen",
+                width: "2rem",
+                marginLeft: "0.5rem",
+              }}
+            />
+          ) : (
+            <BiUpvote
+              className="vote"
+              onClick={() => handleUpvote()}
+              style={{ width: "2rem", marginLeft: "0.5rem" }}
+            />
+          )}
+          <p>{postLikes}</p>
+          <BiDownvote style={{ width: "2rem", marginLeft: "0.5rem" }} />
         </div>
         <div
           className="content"

@@ -29,3 +29,7 @@
     color: blue;
     margin-top: 0;
 }
+
+.vote:hover {
+    cursor: pointer;
+}
