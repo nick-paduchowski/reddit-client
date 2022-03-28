@@ -7,21 +7,23 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getPosts } from '../../actions/posts'
 import { BiSearch } from 'react-icons/bi'
 
-const Home = () => {
+const Home = ({posts}) => {
   const [postData, setPostData] = useState([])
   const [searchQuery, setSearchQuery] = useState("")
   const [reloadData, setReloadData ] = useState(false)
+  
+
   let searchPostData = []
   const dispatch = useDispatch()
     useEffect(() => {
         dispatch(getPosts())
-        console.log(postData)
-    }, [dispatch, searchPostData])
+        setPostData(posts)
+    }, [dispatch])
 
-    let posts = useSelector((state) => state.posts)
+    let newPosts = useSelector((state) => state.posts)
 
     if (searchQuery == "" && postData == []){
-        setPostData(posts)
+        setPostData(newPosts)
         setReloadData(true)
     }
 
@@ -63,7 +65,7 @@ const Home = () => {
       </nav>
       <div className="main-content">
         <div className='posts'>
-            <Posts posts={postData}/>
+            <Posts posts={postData} getPosts={getPosts} searchPostData={searchPostData}/>
         </div>
         <div className='subreddit'>
             <Subreddit />

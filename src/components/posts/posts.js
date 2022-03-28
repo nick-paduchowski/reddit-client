@@ -3,7 +3,12 @@ import { useSelector, useDispatch } from 'react-redux'
 import './posts.css'
 import Post from './post/post'
 
-const Posts = ({posts}) => {
+const Posts = ({posts, getPosts, searchPostData}) => {
+
+
+    if (!posts.length){
+        posts = useSelector(state => state.posts)
+    }
 
     return (
         <>
