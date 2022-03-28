@@ -22,8 +22,6 @@ The process to create the app followed a standard procedure.
 
 First, I created a wireframe design. You can see this design below:
 
-**Add wireframe img**
-
 ![Wireframe](./src/assets/Wireframe.png)
 
 
